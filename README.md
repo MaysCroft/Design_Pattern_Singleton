@@ -90,20 +90,77 @@ Para que uma classe se torne um Singleton, ela precisa seguir estas regras:
 - <b>O Portal de Acesso (Propriedade Instance):</b> Como ninguém pode dar <i>new</i>, a classe oferece uma propriedade pública (geralmente chamada de Instance).
 - <b>Lazy Initialization (Inicialização Preguiçosa):</b> A primeira vez que você pede a instância, a classe a cria. Nas vezes seguintes, ela apenas entrega a que já está pronta.
 
+<hr>
+
 ## 5. Participantes
 
 <b>O Participante "Cliente"</b> <br>
 O Cliente é qualquer parte do seu código que precise usar o Singleton (um serviço de log, uma configuração de banco de dados, etc.).
 - Ele é passivo: não tenta criar o objeto.
 - Ele apenas "chama" o Singleton quando precisa, usando algo como: <i>Configuracao.Instance.Salvar()</i>.
-  
+
+<hr>
+
 ## 6. Justificativa da Escolha
+
+<hr>
+
 ## 7. Explicação da implementação no projeto
+
+<hr>
+
 ## 8. Análise Crítica
+
+<hr>
+
 ## 9. Comparação com abordagens sem o padrão
+
+<hr>
+
 ## 10. Vantagens
+
+<hr>
+
 ## 11. Desvantagens
+
+<hr>
+
 ## 12. Exemplos reais de uso no mercado
+
+<hr>
+
 ## 13. Refêrencias
+
+WANG, Ligang et al. Report of Design Patterns. <br>
+Disponível em: <https://ecs.syr.edu/faculty/fawcett/handouts/cse776/Lecture20/References/Design_patterns_Report.pdf>. <br>
+Acesso em: 21 mar. 2026.
+
+Implementing the singleton pattern in C#. <br>
+Disponível em: <https://csharpindepth.com/articles/singleton>. <br>
+Acesso em: 21 mar. 2026.
+
+KURMI, Vivek. Singleton Design Pattern - Step by step Guide. <br>
+Disponível em: <https://dev.to/kurmivivek295/singleton-design-pattern-step-by-step-guide-2bbb>. <br>
+Acesso em: 21 mar. 2026.
+
+The Singleton pattern in C# today is not your dad’s one! <br>
+Disponível em: <https://blog.postsharp.net/singleton-pattern>. <br>
+Acesso em: 21 mar. 2026.
+
+BILLWAGNER. Lazy initialization. <br>
+Disponível em: <https://learn.microsoft.com/en-us/dotnet/framework/performance/lazy-initialization>. <br>
+Acesso em: 22 mar. 2026.
+
+TAYAL, Dhruv. Mastering the Singleton Design Pattern with Lazy Initialization in C#. <br>
+Disponível em: <https://dhruv-tayal.medium.com/mastering-the-singleton-design-pattern-with-lazy-initialization-in-c-fa8ae052f5d6>. <br>
+Acesso em: 22 mar. 2026.
+
+Why you should prefer singleton pattern over a static class? <br>
+Disponível em: <https://volosoft.com/blog/Prefer-Singleton-Pattern-over-Static-Class>. <br>
+Acesso em: 22 mar. 2026.
+
+VEIGA, Leandro. Mastering C# design patterns: Practical examples of singleton, factory, and observer. <br>
+Disponível em: <https://dev.to/leandroveiga/mastering-c-design-patterns-practical-examples-of-singleton-factory-and-observer-36he>. <br>
+Acesso em: 22 mar. 2026.
 
 <hr>
