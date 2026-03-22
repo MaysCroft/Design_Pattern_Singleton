@@ -9,7 +9,7 @@ Curso: Desenvolvimento de Sistemas <br>
 Instrutor: Fred Aguiar <br>
 Unidade: SENAI CFP Afonso Greco - Nova Lima MG </h4>
 
-<hr>
+---
 
 ## 1. Introdução
 
@@ -42,7 +42,7 @@ Uma única Classe pode gerar infinitas instâncias, e cada uma delas pode ter ca
 - Instância 1: Nome: "Eros", Raça: "Vira-lata".
 - Instância 2: Nome: "Bela Princesa", Raça: "Pitbull".
 
-<hr>
+---
 
 ## 2. Definição do Padrão
 
@@ -53,7 +53,7 @@ Uma única Classe pode gerar infinitas instâncias, e cada uma delas pode ter ca
 O **Singleton** (também conhecido como *Carta Única*) é um padrão de projeto criacional que garante que uma classe tenha apenas uma instância em todo o ciclo de vida da aplicação, fornecendo um ponto global de acesso a essa instância. <br>
 Esse padrão é útil em situações onde é necessário ter exatamente um objeto de uma classe para coordenar ações em todo o sistema.
 
-<hr>
+---
 
 ## 3. Problema que resolve
 
@@ -78,7 +78,7 @@ Antigamente, usavam-se variáveis globais, mas elas eram perigosas: qualquer par
 - **Encapsulamento:** Você pode usar as funções dele, mas não pode deletar a instância ou substituí-la por algo vazio.
 - **Segurança:** A instância física fica escondida e protegida, exposta apenas por um canal de "somente leitura" controlado.
 
-<hr>
+---
 
 ## 4. Estrutura
 
@@ -90,7 +90,7 @@ Para que uma classe se torne um Singleton, ela precisa seguir estas regras:
 - **O Portal de Acesso (Propriedade Instance):** Como ninguém pode dar *new*, a classe oferece uma propriedade pública (geralmente chamada de Instance).
 - **Lazy Initialization (Inicialização Preguiçosa):** A primeira vez que você pede a instância, a classe a cria. Nas vezes seguintes, ela apenas entrega a que já está pronta.
 
-<hr>
+---
 
 ## 5. Participantes
 
@@ -99,7 +99,7 @@ O Cliente é qualquer parte do seu código que precise usar o Singleton (um serv
 - Ele é passivo: não tenta criar o objeto.
 - Ele apenas "chama" o Singleton quando precisa, usando algo como: *Configuracao.Instance.Salvar()*.
 
-<hr>
+---
 
 ## 6. Justificativa da Escolha
 
@@ -119,11 +119,11 @@ O padrão também é aplicado em serviços que precisam ser acessados por todo o
 - **SessionManager:** Centraliza os dados do usuário logado (tokens e perfis) de forma protegida.
 - **Logging:** Centraliza a escrita de logs no sistema de arquivos, evitando conflitos de acesso simultâneo (*file locking*) que poderiam travar a aplicação.
 
-<hr>
+---
 
 ## 7. Explicação da implementação no projeto
 
-<hr>
+---
 
 ## 8. Análise Crítica
 
@@ -134,11 +134,31 @@ Os pontos principais são:
 - **Contra a "Programação Orientada a Padrões":** Critica-se a tendência de implementar padrões apenas por formalidade sintática, ignorando o contexto e a real necessidade do projeto.
 - **Foco na Manutenibilidade:** O código deve ser escrito pensando na facilidade de manutenção futura. Um Singleton mal aplicado pode se tornar um obstáculo para a evolução do sistema, independentemente de quão "correta" pareça sua implementação inicial.
 
-<hr>
+---
 
 ## 9. Comparação com abordagens sem o padrão
 
-<hr>
+A escolha entre essas estruturas não é apenas estética, mas impacta diretamente a manutenção e a performance do software:
+
+- **Classes Estáticas:** São ideais para funções utilitárias sem estado (como cálculos matemáticos). Contudo, são "engessadas": não aceitam herança ou interfaces, dificultam testes unitários e pesam no carregamento inicial da aplicação.
+- **Padrão Singleton:** Uma evolução sobre as estáticas. Permite o uso de interfaces e o carregamento sob demanda (*Lazy Loading*), o que economiza memória. No entanto, ainda sofre com o acoplamento forte e a "dependência oculta", dificultando rastrear quem usa o quê.
+- **Injeção de Dependência (DI):** É um padrão de projeto que reduz o acoplamento entre classes, transferindo a responsabilidade de criar dependências para um componente externo (*container*), em vez de a própria classe instanciá-las, facilitando a manutenção, reutilização de código e testes unitários.
+
+|Aspecto       |Classe Estática    |Padrão Singleton             |Injeção de Dependência (DI)      |
+|--------------|-------------------|-----------------------------|---------------------------------|
+|Polimorfismo  |Não permite        |Permite (Interfaces/Herança) |Totalmente baseado em Interfaces |
+|Carregamento  |Rígido (Framework) |Flexível (Lazy Loading)      |Gerenciado pelo Container (IoC)  |
+|Acoplamento   |Altíssimo (Rígido) |Alto (Dependência oculta)    |Baixo (Loose Coupling)           |
+|Testabilidade |Muito Difícil      |Complexa/Instável            |Excelente (Uso de Mocks)         |
+
+Embora o Singleton (especialmente *System.Lazy<-T->*) ainda tenha utilidade em cenários específicos ou sistemas legados, a Injeção de Dependência é a escolha ideal na arquitetura atual de .NET.
+
+Ela resolve o problema da "dependência oculta", transformando o que seria um acesso global opaco em uma necessidade clara e transparente no construtor das classes, promovendo um código mais modular, limpo e testável.
+
+**OBS:**
+- **Depêndencia Oculta:**  É quando um componente depende de recursos externos (classes, serviços ou variáveis globais) não explicitos na sua interface ou construtor. Elas dificultam a manutenção e testabilidade, pois o código funciona de forma não óbvia, exigindo análise interna para entender o acoplamento.
+
+---
 
 ## 10. Vantagens
 
@@ -147,7 +167,7 @@ Os pontos principais são:
 - **Inicialização Postergada (Lazy Loading):** Através de *Lazy<-T->*, evita o "choque térmico" no arranque do software (como o *cold start* em interfaces WPF), adiando operações pesadas (como conexões SQL) para o momento exato do uso.
 - **Acessibilidade Global Simplificada:** Oferece um ponto de acesso direto em árvores complexas de UI, evitando a necessidade de "comilões de construtores" (injeção manual excessiva de componentes pesados em cada camada).
 
-<hr>
+---
 
 ## 11. Desvantagens
 
@@ -156,11 +176,11 @@ Os pontos principais são:
 - **Código "Espaguete" Frágil:** A interdependência oculta dificulta a manutenção a longo prazo, transformando o projeto em um campo minado onde mudanças em uma ponta quebram funcionalidades.
 - **Dificuldade em Testes Unitários:** O Singleton retém estado entre os testes no ambiente de execução. Isso causa os chamados *Flaky Tests* (testes que falham aleatoriamente), pois um teste pode "envenenar" o resultado do próximo, exigindo recursos técnicos (como *Reflection*) para resetar a instância.
 
-<hr>
+---
 
 ## 12. Exemplos reais de uso no mercado
 
-<hr>
+---
 
 ## 13. Refêrencias Bibliográficas
 
@@ -216,4 +236,4 @@ VEIGA, Leandro. Mastering C# design patterns: Practical examples of singleton, f
 Disponível em: <https://dev.to/leandroveiga/mastering-c-design-patterns-practical-examples-of-singleton-factory-and-observer-36he>. <br>
 Acesso em: 22 mar. 2026.
 
-<hr>
+---
