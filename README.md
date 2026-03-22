@@ -1,8 +1,13 @@
 <h1 align="center"> Design Pattern Singleton </h1>
 
+<p align="center"> 
+  <img src="https://github.com/MaysCroft/Design_Pattern_Singleton/blob/master/Imagens/Singleton%20Logo%20Geo.png"/> 
+</p>
+
 <h4> Aluno: Maycon Siqueira <br>
 Curso: Desenvolvimento de Sistemas <br>
-Instrutor: Fred Aguiar </h4>
+Instrutor: Fred Aguiar <br>
+Unidade: SENAI CFP Afonso Greco - Nova Lima MG </h4>
 
 <hr>
 
@@ -48,7 +53,33 @@ Uma única Classe pode gerar infinitas instâncias, e cada uma delas pode ter ca
 O <b>Singleton</b> (também conhecido como <i>Carta Única</i>) é um padrão de projeto criacional que garante que uma classe tenha apenas uma instância em todo o ciclo de vida da aplicação, fornecendo um ponto global de acesso a essa instância. <br>
 Esse padrão é útil em situações onde é necessário ter exatamente um objeto de uma classe para coordenar ações em todo o sistema.
 
+<hr>
+
 ## 3. Problema que resolve
+
+Diferente de classes comuns, o Singleton assume um papel duplo: 
+
+1. Ele executa suas tarefas (como salvar um log ou conectar ao banco),
+2. E, ao mesmo tempo, gerencia seu próprio ciclo de vida.
+
+Ele decide quando nascer e garante que ninguém mais crie "clones" dele, evitando que o sistema fique sobrecarregado com objetos desnecessários.
+
+### 3.1. Controle de Instanciação e Recursos
+
+Alguns recursos do computador são caros ou limitados. O Singleton impede o caos em dois cenários críticos:
+
+- <b>Conexões de Banco de Dados:</b> Criar uma conexão toda vez que um usuário clica em algo é lento e pode derrubar o servidor. O Singleton garante que todos usem a mesma conexão (ou um pool controlado).
+- <b>Acesso a Arquivos (Logs):</b> Se duas partes do programa tentarem escrever no mesmo arquivo de log ao mesmo tempo, o Windows ou Linux vai travar a operação. O Singleton centraliza o acesso, garantindo que apenas um "braço" escreva por vez, evitando erros fatais.
+
+### 3.2. Acesso Global Seguro
+
+Antigamente, usavam-se variáveis globais, mas elas eram perigosas: qualquer parte do código podia apagá-las ou alterá-las sem querer. O Singleton oferece a mesma facilidade (você o acessa de qualquer lugar), mas com uma camada de proteção:
+
+- <b>Encapsulamento:</b> Você pode usar as funções dele, mas não pode deletar a instância ou substituí-la por algo vazio.
+- <b>Segurança:</b> A instância física fica escondida e protegida, exposta apenas por um canal de "somente leitura" controlado.
+
+<hr>
+
 ## 4. Estrutura
 
 Para que uma classe se torne um Singleton, ela precisa seguir estas regras:
