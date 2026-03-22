@@ -144,12 +144,17 @@ Os pontos principais são:
 
 - **Eficiência de Recursos:** Evita a criação e destruição constante de instâncias, mantendo a ocupação da memória previsível.
 - **Performance Instantânea:** Maximiza o tempo de resposta após a primeira inicialização, garantindo fluidez em fluxos de alta frequência.
-- **Inicialização Postergada (Lazy Loading):** Através de *Lazy<-T->*, evita o "choque térmico" no arranque do software (como o cold start em interfaces WPF), adiando operações pesadas (parsing de JSON, conexões SQL) para o momento exato do uso.
-- **Acessibilidade Global Simplificada:** Oferece um ponto de acesso direto em árvores complexas de UI, evitando a necessidade de "comilões de construtores" (injeção manual excessiva de dependências em cada camada).
+- **Inicialização Postergada (Lazy Loading):** Através de *Lazy<-T->*, evita o "choque térmico" no arranque do software (como o *cold start* em interfaces WPF), adiando operações pesadas (como conexões SQL) para o momento exato do uso.
+- **Acessibilidade Global Simplificada:** Oferece um ponto de acesso direto em árvores complexas de UI, evitando a necessidade de "comilões de construtores" (injeção manual excessiva de componentes pesados em cada camada).
 
 <hr>
 
 ## 11. Desvantagens
+
+- **Insegurança:** A instância única expõe o encapsulamento a modificações incontroláveis. Em ambientes *multithread* (multi-tarefas), isso pode gerar erros "fantasmas" se não houver sincronização rigorosa.
+- **Falta de Transparência:** Como o Singleton é chamado diretamente no corpo dos métodos (ex: *Logger.Instance.Execute()*), ele não aparece no construtor da classe. Impedindo o desenvolvedor de identificar as necessidades da classe em uma API pública.
+- **Código "Espaguete" Frágil:** A interdependência oculta dificulta a manutenção a longo prazo, transformando o projeto em um campo minado onde mudanças em uma ponta quebram funcionalidades.
+- **Dificuldade em Testes Unitários:** O Singleton retém estado entre os testes no ambiente de execução. Isso causa os chamados *Flaky Tests* (testes que falham aleatoriamente), pois um teste pode "envenenar" o resultado do próximo, exigindo recursos técnicos (como *Reflection*) para resetar a instância.
 
 <hr>
 
