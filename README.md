@@ -13,27 +13,27 @@ Unidade: SENAI CFP Afonso Greco - Nova Lima MG </h4>
 
 ## 1. Introdução
 
-A engenharia de software moderna busca criar sistemas fortes e fáceis de manter. Para isso, os desenvolvedores utilizam <b> Padrões de Projeto (Design Patterns) </b>, que são soluções comprovadas para problemas que aparecem com frequência no dia a dia. <br>
+A engenharia de software moderna busca criar sistemas fortes e fáceis de manter. Para isso, os desenvolvedores utilizam **Padrões de Projeto (Design Patterns)**, que são soluções comprovadas para problemas que aparecem com frequência no dia a dia. <br>
 Essa prática se tornou um padrão na indústria em 1994, graças ao livro "Design Patterns: Elements of Reusable Object-Oriented Software", escrito por quatro autores (Erich Gamma, Richard Helm, Ralph Johnson e John Vlissides) conhecidos como Gang of Four (GoF). <br> <br> 
 Eles catalogaram 23 padrões e os dividiram em três grandes grupos:
 
-1. <b> Criacionais: </b> Focam em como os objetos são criados.
-2. <b> Estruturais: </b> Focam em como classes e objetos são montados para formar estruturas maiores.
-3. <b> Comportamentais: </b> Focam na comunicação entre os objetos.
+1. **Criacionais:** Focam em como os objetos são criados.
+2. **Estruturais:** Focam em como classes e objetos são montados para formar estruturas maiores.
+3. **Comportamentais:** Focam na comunicação entre os objetos.
 
 ### 1.1. O que são Padrões Criacionais (Creational Patterns)? 
 
 O foco desses padrões é simplificar a instanciação (a criação) de objetos. Em vez de o sistema criar objetos de forma direta e rígida, os padrões criacionais funcionam como uma "caixa preta":
 
-- <b> O que eles fazem: </b> Eles escondem os detalhes de como um objeto é criado e qual classe específica está sendo usada.
-- <b> A vantagem: </b> Isso torna o sistema mais flexível. Se você precisar mudar a forma como um objeto é montado ou trocar uma peça do sistema, o restante do código não precisa ser alterado, pois ele não conhece os detalhes internos da criação.
+- **O que eles fazem:** Eles escondem os detalhes de como um objeto é criado e qual classe específica está sendo usada.
+- **A vantagem:** Isso torna o sistema mais flexível. Se você precisar mudar a forma como um objeto é montado ou trocar uma peça do sistema, o restante do código não precisa ser alterado, pois ele não conhece os detalhes internos da criação.
 
 ### 1.2. O que é uma instância?
 
 É um objeto real e concreto que foi criado na memória do computador a partir de uma Classe. <br>
 
 1. A Classe define o "tipo" (ex: Carro).
-2. A Instância é o objeto específico (ex: O meu Uno Vermelho, Placa ABC-1234).
+2. A Instância é o objeto específico (ex: Uno Vermelho, Placa ABC-1234).
 
 Por que isso é importante? <br>
 Uma única Classe pode gerar infinitas instâncias, e cada uma delas pode ter características diferentes, mesmo seguindo o mesmo molde:
@@ -50,7 +50,7 @@ Uma única Classe pode gerar infinitas instâncias, e cada uma delas pode ter ca
   <img src="https://github.com/MaysCroft/Design_Pattern_Singleton/blob/master/Imagens/Singleton.png" height="500" width="700"/> 
 </p>
 
-O <b>Singleton</b> (também conhecido como <i>Carta Única</i>) é um padrão de projeto criacional que garante que uma classe tenha apenas uma instância em todo o ciclo de vida da aplicação, fornecendo um ponto global de acesso a essa instância. <br>
+O **Singleton** (também conhecido como *Carta Única*) é um padrão de projeto criacional que garante que uma classe tenha apenas uma instância em todo o ciclo de vida da aplicação, fornecendo um ponto global de acesso a essa instância. <br>
 Esse padrão é útil em situações onde é necessário ter exatamente um objeto de uma classe para coordenar ações em todo o sistema.
 
 <hr>
@@ -68,15 +68,15 @@ Ele decide quando nascer e garante que ninguém mais crie "clones" dele, evitand
 
 Alguns recursos do computador são caros ou limitados. O Singleton impede o caos em dois cenários críticos:
 
-- <b>Conexões de Banco de Dados:</b> Criar uma conexão toda vez que um usuário clica em algo é lento e pode derrubar o servidor. O Singleton garante que todos usem a mesma conexão (ou um pool controlado).
-- <b>Acesso a Arquivos (Logs):</b> Se duas partes do programa tentarem escrever no mesmo arquivo de log ao mesmo tempo, o Windows ou Linux vai travar a operação. O Singleton centraliza o acesso, garantindo que apenas um "braço" escreva por vez, evitando erros fatais.
+- **Conexões de Banco de Dados:** Criar uma conexão toda vez que um usuário clica em algo é lento e pode derrubar o servidor. O Singleton garante que todos usem a mesma conexão (ou um pool controlado).
+- **Acesso a Arquivos (Logs):** Se duas partes do programa tentarem escrever no mesmo arquivo de log ao mesmo tempo, o Windows ou Linux vai travar a operação. O Singleton centraliza o acesso, garantindo que apenas um "braço" escreva por vez, evitando erros fatais.
 
 ### 3.2. Acesso Global Seguro
 
 Antigamente, usavam-se variáveis globais, mas elas eram perigosas: qualquer parte do código podia apagá-las ou alterá-las sem querer. O Singleton oferece a mesma facilidade (você o acessa de qualquer lugar), mas com uma camada de proteção:
 
-- <b>Encapsulamento:</b> Você pode usar as funções dele, mas não pode deletar a instância ou substituí-la por algo vazio.
-- <b>Segurança:</b> A instância física fica escondida e protegida, exposta apenas por um canal de "somente leitura" controlado.
+- **Encapsulamento:** Você pode usar as funções dele, mas não pode deletar a instância ou substituí-la por algo vazio.
+- **Segurança:** A instância física fica escondida e protegida, exposta apenas por um canal de "somente leitura" controlado.
 
 <hr>
 
@@ -84,40 +84,40 @@ Antigamente, usavam-se variáveis globais, mas elas eram perigosas: qualquer par
 
 Para que uma classe se torne um Singleton, ela precisa seguir estas regras:
 
-- <b>Construtor Privado (private):</b> Ao tornar o construtor privado, você impede que qualquer outra parte do código use o comando new Singleton(). Só a própria classe pode criar a si mesma.
-- <b>Classe Selada (sealed):</b> Isso evita que outras classes herdem dela. Se alguém pudesse herdar do Singleton, poderia acabar criando instâncias extras sem querer, quebrando a regra de "uma única cópia".
-- <b>O "Cofre" (Campo Estático):</b> A classe guarda uma variável privada e estática (ex: _instance) que armazena a única cópia do objeto na memória enquanto o programa estiver rodando.
-- <b>O Portal de Acesso (Propriedade Instance):</b> Como ninguém pode dar <i>new</i>, a classe oferece uma propriedade pública (geralmente chamada de Instance).
-- <b>Lazy Initialization (Inicialização Preguiçosa):</b> A primeira vez que você pede a instância, a classe a cria. Nas vezes seguintes, ela apenas entrega a que já está pronta.
+- **Construtor Privado (private):** Ao tornar o construtor privado, você impede que qualquer outra parte do código use o comando new Singleton(). Só a própria classe pode criar a si mesma.
+- **Classe Selada (sealed):** Isso evita que outras classes herdem dela. Se alguém pudesse herdar do Singleton, poderia acabar criando instâncias extras sem querer, quebrando a regra de "uma única cópia".
+- **O "Cofre" (Campo Estático):** A classe guarda uma variável privada e estática (ex: _instance) que armazena a única cópia do objeto na memória enquanto o programa estiver rodando.
+- **O Portal de Acesso (Propriedade Instance):** Como ninguém pode dar *new*, a classe oferece uma propriedade pública (geralmente chamada de Instance).
+- **Lazy Initialization (Inicialização Preguiçosa):** A primeira vez que você pede a instância, a classe a cria. Nas vezes seguintes, ela apenas entrega a que já está pronta.
 
 <hr>
 
 ## 5. Participantes
 
-<b>O Participante "Cliente"</b> <br>
+**O Participante "Cliente"** <br>
 O Cliente é qualquer parte do seu código que precise usar o Singleton (um serviço de log, uma configuração de banco de dados, etc.).
 - Ele é passivo: não tenta criar o objeto.
-- Ele apenas "chama" o Singleton quando precisa, usando algo como: <i>Configuracao.Instance.Salvar()</i>.
+- Ele apenas "chama" o Singleton quando precisa, usando algo como: *Configuracao.Instance.Salvar()*.
 
 <hr>
 
 ## 6. Justificativa da Escolha
 
-Em aplicações modernas, o WPF utiliza uma janela principal (MainWindow) que troca dinamicamente seu conteúdo (View) conforme a ViewModel atual muda. Para isso, utiliza-se um NavigationStore (Repositório de Navegação).
+Em aplicações modernas, o WPF utiliza uma janela principal (*MainWindow*) que troca dinamicamente seu conteúdo (*View*) conforme a *ViewModel* atual muda. Para isso, utiliza-se um *NavigationStore* (Repositório de Navegação).
 
 ### 6.1. Singleton como Sincronização
 
-A aplicação do Singleton no <i>NavigationStore</i> resolve o problema de dessincronização de instâncias:
+A aplicação do Singleton no *NavigationStore* resolve o problema de dessincronização de instâncias:
 
-- <b>O Problema:</b> Se diferentes partes do sistema criarem novas instâncias do repositório de navegação, o <i>Data Binding</i> (vinculação de dados) da Janela Principal pode "quebrar", pois ela estaria ouvindo um objeto, enquanto o comando de navegação altera outro.
-- <b>A Solução:</b> O Singleton garante uma única instância na memória. Assim, quando qualquer botão altera a <i>CurrentViewModel</i>, a <i>MainWindow</i> reage instantaneamente, pois ambas referenciam o mesmo objeto.
+- **O Problema:** Se diferentes partes do sistema criarem novas instâncias do repositório de navegação, o *Data Binding* (vinculação de dados) da Janela Principal pode "quebrar", pois ela estaria ouvindo um objeto, enquanto o comando de navegação altera outro.
+- **A Solução:** O Singleton garante uma única instância na memória. Assim, quando qualquer botão altera a *CurrentViewModel*, a *MainWindow* reage instantaneamente, pois ambas referenciam o mesmo objeto.
 
 ### 6.2. Gestão de Serviços Globais (Cross-cutting Concerns)
 
 O padrão também é aplicado em serviços que precisam ser acessados por todo o software sem a necessidade de passar referências complexas via construtores:
 
-- <b>SessionManager:</b> Centraliza os dados do usuário logado (tokens e perfis) de forma protegida.
-- <b>Logging:</b> Centraliza a escrita de logs no sistema de arquivos, evitando conflitos de acesso simultâneo (file locking) que poderiam travar a aplicação.
+- **SessionManager:** Centraliza os dados do usuário logado (tokens e perfis) de forma protegida.
+- **Logging:** Centraliza a escrita de logs no sistema de arquivos, evitando conflitos de acesso simultâneo (*file locking*) que poderiam travar a aplicação.
 
 <hr>
 
@@ -130,9 +130,9 @@ O padrão também é aplicado em serviços que precisam ser acessados por todo o
 A aplicação do padrão Singleton deve ser uma decisão consciente e estratégica, e não um hábito automático do desenvolvedor. <br>
 Os pontos principais são:
 
-- <b>Ponderação de Trade-offs:</b> O papel do desenvolvedor não é apenas aplicar padrões, mas avaliar se os benefícios de uma solução superam seus custos técnicos e operacionais.
-- <b>Contra a "Programação Orientada a Padrões":</b> Critica-se a tendência de implementar padrões apenas por formalidade sintática, ignorando o contexto e a real necessidade do projeto.
-- <b>Foco na Manutenibilidade:</b> O código deve ser escrito pensando na facilidade de manutenção futura. Um Singleton mal aplicado pode se tornar um obstáculo para a evolução do sistema, independentemente de quão "correta" pareça sua implementação inicial.
+- **Ponderação de Trade-offs:**O papel do desenvolvedor não é apenas aplicar padrões, mas avaliar se os benefícios de uma solução superam seus custos técnicos e operacionais.
+- **Contra a "Programação Orientada a Padrões":** Critica-se a tendência de implementar padrões apenas por formalidade sintática, ignorando o contexto e a real necessidade do projeto.
+- **Foco na Manutenibilidade:** O código deve ser escrito pensando na facilidade de manutenção futura. Um Singleton mal aplicado pode se tornar um obstáculo para a evolução do sistema, independentemente de quão "correta" pareça sua implementação inicial.
 
 <hr>
 
@@ -141,6 +141,11 @@ Os pontos principais são:
 <hr>
 
 ## 10. Vantagens
+
+- **Eficiência de Recursos:** Evita a criação e destruição constante de instâncias, mantendo a ocupação da memória previsível.
+- **Performance Instantânea:** Maximiza o tempo de resposta após a primeira inicialização, garantindo fluidez em fluxos de alta frequência.
+- **Inicialização Postergada (Lazy Loading):** Através de *Lazy<-T->*, evita o "choque térmico" no arranque do software (como o cold start em interfaces WPF), adiando operações pesadas (parsing de JSON, conexões SQL) para o momento exato do uso.
+- **Acessibilidade Global Simplificada:** Oferece um ponto de acesso direto em árvores complexas de UI, evitando a necessidade de "comilões de construtores" (injeção manual excessiva de dependências em cada camada).
 
 <hr>
 
