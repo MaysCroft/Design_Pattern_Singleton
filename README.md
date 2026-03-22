@@ -37,10 +37,12 @@ Uma única Classe pode gerar infinitas instâncias, e cada uma delas pode ter ca
 - Instância 1: Nome: "Eros", Raça: "Vira-lata".
 - Instância 2: Nome: "Bela Princesa", Raça: "Pitbull".
 
+<hr>
+
 ## 2. Definição do Padrão
 
 <p align="center"> 
-  <img src="" height="500" width="700"/> 
+  <img src="https://github.com/MaysCroft/Design_Pattern_Singleton/blob/master/Imagens/Singleton.png" height="500" width="700"/> 
 </p>
 
 O <b>Singleton</b> (também conhecido como <i>Carta Única</i>) é um padrão de projeto criacional que garante que uma classe tenha apenas uma instância em todo o ciclo de vida da aplicação, fornecendo um ponto global de acesso a essa instância. <br>
@@ -49,9 +51,13 @@ Esse padrão é útil em situações onde é necessário ter exatamente um objet
 ## 3. Problema que resolve
 ## 4. Estrutura
 
-<p align="center"> 
-  <img src=""/> 
-</p>
+Para que uma classe se torne um Singleton, ela precisa seguir estas regras:
+
+- <b>Construtor Privado (private):</b> Ao tornar o construtor privado, você impede que qualquer outra parte do código use o comando new Singleton(). Só a própria classe pode criar a si mesma.
+- <b>Classe Selada (sealed):</b> Isso evita que outras classes herdem dela. Se alguém pudesse herdar do Singleton, poderia acabar criando instâncias extras sem querer, quebrando a regra de "uma única cópia".
+- <b>O "Cofre" (Campo Estático):</b> A classe guarda uma variável privada e estática (ex: _instance) que armazena a única cópia do objeto na memória enquanto o programa estiver rodando.
+- <b>O Portal de Acesso (Propriedade Instance):</b> Como ninguém pode dar new, a classe oferece uma propriedade pública (geralmente chamada de Instance).
+- <b>Lazy Initialization (Inicialização Preguiçosa):</b> A primeira vez que você pede a instância, a classe a cria. Nas vezes seguintes, ela apenas entrega a que já está pronta.
 
 ## 5. Participantes
 ## 6. Justificativa da Escolha
