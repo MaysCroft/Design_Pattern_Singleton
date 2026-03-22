@@ -103,6 +103,22 @@ O Cliente é qualquer parte do seu código que precise usar o Singleton (um serv
 
 ## 6. Justificativa da Escolha
 
+Em aplicações modernas, o WPF utiliza uma janela principal (MainWindow) que troca dinamicamente seu conteúdo (View) conforme a ViewModel atual muda. Para isso, utiliza-se um NavigationStore (Repositório de Navegação).
+
+### 6.1. Singleton como Sincronização
+
+A aplicação do Singleton no <i>NavigationStore</i> resolve o problema de dessincronização de instâncias:
+
+- <b>O Problema:</b> Se diferentes partes do sistema criarem novas instâncias do repositório de navegação, o <i>Data Binding</i> (vinculação de dados) da Janela Principal pode "quebrar", pois ela estaria ouvindo um objeto, enquanto o comando de navegação altera outro.
+- <b>A Solução:</b> O Singleton garante uma única instância na memória. Assim, quando qualquer botão altera a <i>CurrentViewModel</i>, a <i>MainWindow</i> reage instantaneamente, pois ambas referenciam o mesmo objeto.
+
+### 6.2. Gestão de Serviços Globais (Cross-cutting Concerns)
+
+O padrão também é aplicado em serviços que precisam ser acessados por todo o software sem a necessidade de passar referências complexas via construtores:
+
+- <b>SessionManager:</b> Centraliza os dados do usuário logado (tokens e perfis) de forma protegida.
+- <b>Logging:</b> Centraliza a escrita de logs no sistema de arquivos, evitando conflitos de acesso simultâneo (file locking) que poderiam travar a aplicação.
+
 <hr>
 
 ## 7. Explicação da implementação no projeto
@@ -129,7 +145,7 @@ O Cliente é qualquer parte do seu código que precise usar o Singleton (um serv
 
 <hr>
 
-## 13. Refêrencias
+## 13. Refêrencias Bibliográficas
 
 WANG, Ligang et al. Report of Design Patterns. <br>
 Disponível em: <https://ecs.syr.edu/faculty/fawcett/handouts/cse776/Lecture20/References/Design_patterns_Report.pdf>. <br>
@@ -146,6 +162,26 @@ Acesso em: 21 mar. 2026.
 The Singleton pattern in C# today is not your dad’s one! <br>
 Disponível em: <https://blog.postsharp.net/singleton-pattern>. <br>
 Acesso em: 21 mar. 2026.
+
+What are the real world applications of the singleton pattern? <br>
+Disponível em: <https://stackoverflow.com/questions/733842/what-are-the-real-world-applications-of-the-singleton-pattern>. <br>
+Acesso em: 22 mar. 2026.
+
+NARAPAREDDY, Shyamprasad. Singleton pattern: Exploring the Best Use Cases for C# Developers. <br>
+Disponível em: <https://nshyamprasad.medium.com/singleton-pattern-exploring-the-best-use-cases-for-c-developers-5e949fc7e4eb>. <br>
+Acesso em: 22 mar. 2026.
+
+RAHMAN, Hasinur. Singleton Design Pattern Explained with Real-life examples. <br>
+Disponível em: <https://medium.com/@hasinur1997/singleton-design-pattern-explained-with-real-life-examples-d020495c4d82>. <br>
+Acesso em: 22 mar. 2026.
+
+MÜLLER, Martin. Singleton Pattern Disadvantages and solutions. <br>
+Disponível em: <https://medium.com/@cadothek/singleton-pattern-disadvantages-and-solutions-20b99d9e1986>. <br>
+Acesso em: 22 mar. 2026.
+
+JANINDUMALEESHA. The singleton pattern in .NET: A practical guide for developers. <br>
+Disponível em: <https://medium.com/@janindumaleesha99/the-singleton-pattern-in-net-a-practical-guide-for-developers-140d3c3464fd>. <br>
+Acesso em: 22 mar. 2026. 
 
 BILLWAGNER. Lazy initialization. <br>
 Disponível em: <https://learn.microsoft.com/en-us/dotnet/framework/performance/lazy-initialization>. <br>
