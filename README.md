@@ -28,7 +28,7 @@ O foco desses padrões é simplificar a instanciação (a criação) de objetos.
 É um objeto real e concreto que foi criado na memória do computador a partir de uma Classe. <br>
 
 1. A Classe define o "tipo" (ex: Carro).
-2. A Instância é o objeto específico (ex: o meu carro azul, placa ABC-1234).
+2. A Instância é o objeto específico (ex: O meu Uno Vermelho, Placa ABC-1234).
 
 Por que isso é importante? <br>
 Uma única Classe pode gerar infinitas instâncias, e cada uma delas pode ter características diferentes, mesmo seguindo o mesmo molde:
@@ -56,10 +56,16 @@ Para que uma classe se torne um Singleton, ela precisa seguir estas regras:
 - <b>Construtor Privado (private):</b> Ao tornar o construtor privado, você impede que qualquer outra parte do código use o comando new Singleton(). Só a própria classe pode criar a si mesma.
 - <b>Classe Selada (sealed):</b> Isso evita que outras classes herdem dela. Se alguém pudesse herdar do Singleton, poderia acabar criando instâncias extras sem querer, quebrando a regra de "uma única cópia".
 - <b>O "Cofre" (Campo Estático):</b> A classe guarda uma variável privada e estática (ex: _instance) que armazena a única cópia do objeto na memória enquanto o programa estiver rodando.
-- <b>O Portal de Acesso (Propriedade Instance):</b> Como ninguém pode dar new, a classe oferece uma propriedade pública (geralmente chamada de Instance).
+- <b>O Portal de Acesso (Propriedade Instance):</b> Como ninguém pode dar <i>new</i>, a classe oferece uma propriedade pública (geralmente chamada de Instance).
 - <b>Lazy Initialization (Inicialização Preguiçosa):</b> A primeira vez que você pede a instância, a classe a cria. Nas vezes seguintes, ela apenas entrega a que já está pronta.
 
 ## 5. Participantes
+
+<b>O Participante "Cliente"</b> <br>
+O Cliente é qualquer parte do seu código que precise usar o Singleton (um serviço de log, uma configuração de banco de dados, etc.).
+- Ele é passivo: não tenta criar o objeto.
+- Ele apenas "chama" o Singleton quando precisa, usando algo como: <i>Configuracao.Instance.Salvar()</i>.
+  
 ## 6. Justificativa da Escolha
 ## 7. Explicação da implementação no projeto
 ## 8. Análise Crítica
