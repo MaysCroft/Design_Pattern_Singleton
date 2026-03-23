@@ -130,7 +130,7 @@ O padrão também é aplicado em serviços que precisam ser acessados por todo o
 A aplicação do padrão Singleton deve ser uma decisão consciente e estratégica, e não um hábito automático do desenvolvedor. <br>
 Os pontos principais são:
 
-- **Ponderação de Trade-offs:**O papel do desenvolvedor não é apenas aplicar padrões, mas avaliar se os benefícios de uma solução superam seus custos técnicos e operacionais.
+- **Ponderação de Trade-offs:** O papel do desenvolvedor não é apenas aplicar padrões, mas avaliar se os benefícios de uma solução superam seus custos técnicos e operacionais.
 - **Contra a "Programação Orientada a Padrões":** Critica-se a tendência de implementar padrões apenas por formalidade sintática, ignorando o contexto e a real necessidade do projeto.
 - **Foco na Manutenibilidade:** O código deve ser escrito pensando na facilidade de manutenção futura. Um Singleton mal aplicado pode se tornar um obstáculo para a evolução do sistema, independentemente de quão "correta" pareça sua implementação inicial.
 
