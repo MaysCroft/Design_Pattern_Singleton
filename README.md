@@ -1,7 +1,7 @@
 <h1 align="center"> Design Pattern Singleton </h1>
 
 <p align="center"> 
-  <img src="https://github.com/MaysCroft/Design_Pattern_Singleton/blob/master/Imagens/Singleton%20Logo%20Geo.png"/> 
+  <img src="https://github.com/MaysCroft/Design_Pattern_Singleton/blob/master/Imagens/Singleton%20Logo%20Geo%202.0.png"/> 
 </p>
 
 <h4> Aluno: Maycon Siqueira <br>
