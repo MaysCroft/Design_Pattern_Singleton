@@ -47,7 +47,7 @@ Uma única Classe pode gerar infinitas instâncias, e cada uma delas pode ter ca
 ## 2. Definição do Padrão
 
 <p align="center"> 
-  <img src="https://github.com/MaysCroft/Design_Pattern_Singleton/blob/master/Imagens/Singleton.png" height="500" width="700"/> 
+  <img src="https://github.com/MaysCroft/Design_Pattern_Singleton/blob/master/Imagens/Singleton%20Ningguang.png" height="700" width="900"/> 
 </p>
 
 O **Singleton** (também conhecido como *Carta Única*) é um padrão de projeto criacional que garante que uma classe tenha apenas uma instância em todo o ciclo de vida da aplicação, fornecendo um ponto global de acesso a essa instância. <br>
