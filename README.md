@@ -119,6 +119,9 @@ O padrão também é aplicado em serviços que precisam ser acessados por todo o
 - **SessionManager:** Centraliza os dados do usuário logado (tokens e perfis) de forma protegida.
 - **Logging:** Centraliza a escrita de logs no sistema de arquivos, evitando conflitos de acesso simultâneo (*file locking*) que poderiam travar a aplicação.
 
+**OBS:**
+- **File Locking:** Mecanismo que impede que múltiplos usuários ou processos editem um arquivo simultaneamente, garantindo a integridade dos dados e evitando conflitos de versão
+
 ---
 
 ## 7. Explicação da implementação no projeto
