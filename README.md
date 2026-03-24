@@ -185,7 +185,7 @@ Ela resolve o problema da "dependência oculta", transformando o que seria um ac
 
 - **Eficiência de Recursos:** Evita a criação e destruição constante de instâncias, mantendo a ocupação da memória previsível.
 - **Performance Instantânea:** Maximiza o tempo de resposta após a primeira inicialização, garantindo fluidez em fluxos de alta frequência.
-- **Inicialização Postergada (Lazy Loading):** Através de *Lazy<-T->*, evita o "choque térmico" no arranque do software (como o *cold start* em interfaces WPF), adiando operações pesadas (como conexões SQL) para o momento exato do uso.
+- **Inicialização Preguiçosa (Lazy Loading):** Através de *Lazy<-T->*, evita o "choque térmico" no arranque do software (como o *cold start* em interfaces WPF), adiando operações pesadas (como conexões SQL) para o momento exato do uso.
 - **Acessibilidade Global Simplificada:** Oferece um ponto de acesso direto em árvores complexas de UI, evitando a necessidade de "comilões de construtores" (injeção manual excessiva de componentes pesados em cada camada).
 
 ---
