@@ -1,0 +1,42 @@
+﻿<mah:MetroWindow x:Class="AppPadraoSingleton.MainWindow"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 xmlns:local="clr-namespace:AppPadraoSingleton"
+                 xmlns:viewmodels="clr-namespace:AppPadraoSingleton.ViewModels"
+                 xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+                 mc:Ignorable="d"
+                 Title="Jade Chamber Systems"
+                 Height="450"
+                 Width="800"
+                 WindowStartupLocation="CenterScreen">
+
+    <Window.DataContext>
+        <viewmodels:BaseViewModel />
+    </Window.DataContext>
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+
+            <TextBlock Text="{Binding Titulo}"
+                       FontSize="25"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"
+                       Margin="10" />
+
+            <TextBlock Text="{Binding MoraAtual, StringFormat='Fundos: {0:N0} Mora'}"
+                       FontSize="20"
+                       HorizontalAlignment="Center"
+                       Margin="10" />
+
+            <Button
+                Command="{Binding ColetarCommand}"
+                Content="Coletar Taxas"
+                Width="150"
+                Height="50"
+                Cursor="Arrow" />
+        </StackPanel>
+    </Grid>
+</mah:MetroWindow>
