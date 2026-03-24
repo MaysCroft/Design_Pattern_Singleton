@@ -7,7 +7,7 @@
                  xmlns:viewmodels="clr-namespace:AppPadraoSingleton.ViewModels"
                  xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
                  mc:Ignorable="d"
-                 Title="Jade Chamber Systems"
+                 Title="Jade Chamber"
                  Height="500" Width="850"
                  WindowStartupLocation="CenterScreen"
                  BorderBrush="#D4AF37"

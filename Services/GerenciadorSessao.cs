@@ -21,13 +21,13 @@ public class GerenciadorSessao : INotifyPropertyChanged
         private set
         {
             _moraAcumulada = value;
-            OnPropertyChanged(); // Avisando o sistema que o valor mudou
+            OnPropertyChanged();
         }
     }
 
     private GerenciadorSessao()
     {
-        MoraAcumulada = 5000000;
+        MoraAcumulada = 50000000;
     }
 
     public void ColetarTaxas(int valor)
