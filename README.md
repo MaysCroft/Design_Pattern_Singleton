@@ -208,7 +208,7 @@ O Singleton não é apenas sobre "ter uma instância", mas sobre impor ordem nos
 Centraliza o fluxo de escrita em sistemas como *Splunk* ou *Serilog*.
 
 - **O Problema:** Vários módulos tentando escrever no mesmo arquivo ou banco de dados ao mesmo tempo geram erros de I/O (file locks) e corrupção de dados.
-- **A Solução: O Singleton garante uma fila única e thread-safe, organizando as mensagens de forma sequencial antes da persistência física no disco ou nuvem.
+- **A Solução:** O Singleton garante uma fila única e thread-safe, organizando as mensagens de forma sequencial antes da persistência física no disco ou nuvem.
 
 2. **Cache de Configurações e Metadados**
    
