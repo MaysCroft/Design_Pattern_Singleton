@@ -126,6 +126,24 @@ O padrão também é aplicado em serviços que precisam ser acessados por todo o
 
 ## 7. Explicação da implementação no projeto
 
+A Câmara de Jade possui apenas uma liderança (a Tianquan, Ningguang) e um cofre centralizado onde todos os fundos de Mora (moeda oficial de Teyvat) são contabilizados.
+
+O padrão Singleton atua como uma sincronização obrigatória. Ele garante que, não importa quantas vezes o sistema solicite acesso à sessão para coletar taxas ou ler o saldo, será entregue sempre a mesma e única instância.
+
+<p align="center"> 
+  <img src="https://github.com/MaysCroft/Design_Pattern_Singleton/blob/master/Imagens/Cod1Cadeado.png"/> 
+</p>
+
+A linha *private GerenciadorSessao()* funciona como um **Cadeado**, bloqueando a criação externa de objetos. Ninguém de fora da própria classe consegue usar o comando de inicialização padrão.
+
+<p align="center"> 
+  <img src="https://github.com/MaysCroft/Design_Pattern_Singleton/blob/master/Imagens/Cod2CofreChave.png"/> 
+</p>
+
+O campo private *static readonly Lazy<GerenciadorSessao> _instance* funciona como um **Cofre**. Esta é a própria classe guardando uma cópia única (e blindada) dela mesma em um espaço isolado de memória.
+
+A propriedade *public static GerenciadorSessao Instance* funcionará como uma **Chave**. Como as outras classes não podem criar uma sessão nova, elas são obrigadas a pedir acesso passando por esse portal, garantindo a centralização.
+
 ---
 
 ## 8. Análise Crítica
