@@ -44,7 +44,7 @@ Uma única Classe pode gerar infinitas instâncias, e cada uma delas pode ter ca
 
 ---
 
-## 2. Definição do Padrão
+## 2. Definição do Padrão Singleton
 
 <p align="center"> 
   <img src="https://github.com/MaysCroft/Design_Pattern_Singleton/blob/master/Imagens/Singleton%20Ningguang.png" height="700" width="900"/> 
