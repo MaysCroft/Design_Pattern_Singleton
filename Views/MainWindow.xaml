@@ -8,35 +8,91 @@
                  xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
                  mc:Ignorable="d"
                  Title="Jade Chamber Systems"
-                 Height="450"
-                 Width="800"
-                 WindowStartupLocation="CenterScreen">
+                 Height="500" Width="850"
+                 WindowStartupLocation="CenterScreen"
+                 BorderBrush="#D4AF37"
+                 BorderThickness="2"
+                 TitleBarHeight="35">
 
     <Window.DataContext>
         <viewmodels:BaseViewModel />
     </Window.DataContext>
 
+    <Window.Background>
+        <ImageBrush ImageSource="pack://application:,,,/Imagens/Singleton Ningguang.png"
+                    Stretch="UniformToFill"
+                    Opacity="0.4" />
+    </Window.Background>
+
     <Grid>
-        <StackPanel HorizontalAlignment="Center"
-                    VerticalAlignment="Center">
+        <Border HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Background="#DD1A1A1A"
+                BorderBrush="#D4AF37"
+                BorderThickness="2"
+                CornerRadius="15"
+                Padding="40, 30">
 
-            <TextBlock Text="{Binding Titulo}"
-                       FontSize="25"
-                       FontWeight="Bold"
-                       HorizontalAlignment="Center"
-                       Margin="10" />
+            <Border.Effect>
+                <DropShadowEffect Color="Black"
+                                  BlurRadius="20"
+                                  Opacity="0.8"
+                                  Direction="320" />
+            </Border.Effect>
 
-            <TextBlock Text="{Binding MoraAtual, StringFormat='Fundos: {0:N0} Mora'}"
-                       FontSize="20"
-                       HorizontalAlignment="Center"
-                       Margin="10" />
+            <StackPanel HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
 
-            <Button
-                Command="{Binding ColetarCommand}"
-                Content="Coletar Taxas"
-                Width="150"
-                Height="50"
-                Cursor="Arrow" />
-        </StackPanel>
+                <Image Source="pack://application:,,,/Imagens/Singleton Logo Geo.png"
+                       Width="200"/>
+
+                <TextBlock Text="{Binding Titulo}"
+                           FontSize="30"
+                           FontFamily="Georgia"
+                           Foreground="#E8C371"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"
+                           Margin="10" />
+
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center"
+                            Margin="10, 15, 10, 25">
+
+                    <TextBlock Text="{Binding MoraAtual, StringFormat=Fundos: {0:N0} Mora}"
+                               FontSize="25"
+                               FontFamily="Segoe UI"
+                               Foreground="#FFFFFF"
+                               FontWeight="SemiBold"
+                               HorizontalAlignment="Center" />
+                </StackPanel>
+
+                <Button
+                    Command="{Binding ColetarCommand}"
+                    Content="Coletar Taxas"
+                    Width="200"
+                    Height="50"
+                    Cursor="Hand"
+                    FontSize="18"
+                    FontWeight="Bold"
+                    FontFamily="Georgia"
+                    Foreground="#2B2B2B"
+                    Background="#D4AF37"
+                    BorderBrush="#E8C371"
+                    BorderThickness="2"
+                    mah:ControlsHelper.CornerRadius="8">
+
+                    <Button.Style>
+                        <Style TargetType="Button" BasedOn="{StaticResource MahApps.Styles.Button}">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#F8D381" />
+                                    <Setter Property="Foreground" Value="#1A1A1A" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </StackPanel>
+        </Border>
     </Grid>
 </mah:MetroWindow>

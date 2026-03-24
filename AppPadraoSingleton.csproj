@@ -20,4 +20,19 @@
       <PackageReference Include="MahApps.Metro" Version="3.0.0-rc0529" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="Imagens\Singleton Ningguang.png" />
+      <Resource Include="Imagens\Singleton Ningguang.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <None Remove="Imagens\Singleton Logo Geo.png" />
+      <Resource Include="Imagens\Singleton Logo Geo.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <None Remove="Imagens\SingletonLogoGeo.png" />
+      <None Remove="Imagens\SingletonNingguang.png" />
+      <None Remove="Imagens\SeloGeo.webp" />
+      <None Remove="Imagens\GeoLogo.png" />
+    </ItemGroup>
+
 </Project>

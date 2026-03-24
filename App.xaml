@@ -15,7 +15,6 @@
                 <ResourceDictionary
                     Source="pack://application:,,,/MahApps.Metro;component/styles/themes/dark.amber.xaml" />
             </ResourceDictionary.MergedDictionaries>
-
         </ResourceDictionary>
     </Application.Resources>
 </Application>
