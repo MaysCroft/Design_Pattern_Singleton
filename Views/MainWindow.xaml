@@ -10,6 +10,7 @@
                  Title="Jade Chamber"
                  Height="500" Width="850"
                  WindowStartupLocation="CenterScreen"
+                 WindowState="Maximized"
                  BorderBrush="#D4AF37"
                  BorderThickness="2"
                  TitleBarHeight="35">
@@ -44,7 +45,7 @@
                         VerticalAlignment="Center">
 
                 <Image Source="pack://application:,,,/Imagens/Singleton Logo Geo.png"
-                       Width="200"/>
+                       Width="200" />
 
                 <TextBlock Text="{Binding Titulo}"
                            FontSize="30"
