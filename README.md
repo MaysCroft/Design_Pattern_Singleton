@@ -185,7 +185,7 @@ Ela resolve o problema da "dependência oculta", transformando o que seria um ac
 
 - **Eficiência de Recursos:** Evita a criação e destruição constante de instâncias, mantendo a ocupação da memória previsível.
 - **Performance Instantânea:** Maximiza o tempo de resposta após a primeira inicialização, garantindo fluidez em fluxos de alta frequência.
-- **Inicialização Postergada (Lazy Loading):** Através de *Lazy<-T->*, evita o "choque térmico" no arranque do software (como o *cold start* em interfaces WPF), adiando operações pesadas (como conexões SQL) para o momento exato do uso.
+- **Inicialização Preguiçosa (Lazy Loading):** Através de *Lazy<-T->*, evita o "choque térmico" no arranque do software (como o *cold start* em interfaces WPF), adiando operações pesadas (como conexões SQL) para o momento exato do uso.
 - **Acessibilidade Global Simplificada:** Oferece um ponto de acesso direto em árvores complexas de UI, evitando a necessidade de "comilões de construtores" (injeção manual excessiva de componentes pesados em cada camada).
 
 ---
@@ -208,7 +208,7 @@ O Singleton não é apenas sobre "ter uma instância", mas sobre impor ordem nos
 Centraliza o fluxo de escrita em sistemas como *Splunk* ou *Serilog*.
 
 - **O Problema:** Vários módulos tentando escrever no mesmo arquivo ou banco de dados ao mesmo tempo geram erros de I/O (file locks) e corrupção de dados.
-- **A Solução: O Singleton garante uma fila única e thread-safe, organizando as mensagens de forma sequencial antes da persistência física no disco ou nuvem.
+- **A Solução:** O Singleton garante uma fila única e thread-safe, organizando as mensagens de forma sequencial antes da persistência física no disco ou nuvem.
 
 2. **Cache de Configurações e Metadados**
    
